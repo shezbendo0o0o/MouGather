@@ -1,0 +1,14 @@
+# YAML EXPLANATION FILE #
+
+Name: MouGather
+Languages: Python,Shell-script,Javascript,Php,Css,Powershell,Batch,C++,Java
+Python-Version: Python 3 
+Original Creator: Luca Garofalo (Lucksi)
+Author: Luca Garofalo (Lucksi)
+Copyright: (C) 2021-2024 Lucksi <shizbendo@gmail.com>
+Copyright-Years: 2021,2022,2023,2024,2025,2026
+Project-site: https://github.com/shezbendo0o0o/MouGather
+Download: git clone https://github.com/shezbendo0o0o/MouGather
+Platforms: Linux/MacOS/Termux/Windows
+Version: 1.0.4
+License: GNU General Public License v3.0

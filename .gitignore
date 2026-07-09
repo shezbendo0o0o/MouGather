@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Generated runtime config
+Configuration/Configuration.ini
+Configuration/Agreement.txt
+Display/Display.txt
+GUI/Credentials/
+GUI/Language/Language.json
+GUI/Theme/Mode.json
+
+# Reports / output
+GUI/Reports/
+Logs/
+Temp/
+QRCodes/
+Screenshot/
+*.log
+
+# Backups
+*.bak
+*.bak*
+*.before_*
+Quotes_backup/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
