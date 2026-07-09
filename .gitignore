@@ -19,7 +19,6 @@ GUI/Reports/
 Logs/
 Temp/
 QRCodes/
-Screenshot/
 *.log
 
 # Backups
