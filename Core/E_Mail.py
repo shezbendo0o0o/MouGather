@@ -130,6 +130,7 @@ class Mail_search:
                             Font.Color.YELLOW + "[v]" + Font.Color.WHITE + "RECORD N {}: ".format(i) + record)
                         i = i+1
                 sleep(2)
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write("\n\nEMAIL DATA:" + "\r\n")
                 f.write("NAME: " + name + "\r\n")
@@ -162,6 +163,7 @@ class Mail_search:
                         Font.Color.GREEN + "\n[+]" + Font.Color.WHITE + Language.Translation.Translate_Language(filename, "Email", "Link", "None").format(name))
                     sleep(2)
                     print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + url)
+                    os.makedirs(os.path.dirname(report), exist_ok=True)
                     f = open(report, "a")
                     f.write("\nGENERATING {} LINK".format(name))
                     f.write("\n{}".format(url))
@@ -191,7 +193,7 @@ class Mail_search:
             print(Font.Color.BLUE + "\n[I]" + Font.Color.WHITE +
                   Language.Translation.Translate_Language(filename, "Default", "Delete", "None").format(username))
         else:
-            os.mkdir(folder)
+            os.makedirs(folder, exist_ok=True)
         f = open(report, "w")
         f.write("SCANNING EXECUTED ON:\n" + Date + "\n")
         f.close()
@@ -211,6 +213,7 @@ class Mail_search:
                 pass
             print(Font.Color.WHITE + Language.Translation.Translate_Language(filename, "Default", "Report", "None") +
                 os.getcwd() + "/" + report)
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write(Language.Translation.Translate_Language(
                 filename, "Report", "Default", "By"))

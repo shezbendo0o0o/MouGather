@@ -110,7 +110,7 @@ class info:
             print(Font.Color.BLUE + "\n[I]" + Font.Color.WHITE +
                   Language.Translation.Translate_Language(filename, "Default", "Delete", "None").format(username))
         else:
-            os.mkdir(folder)
+            os.makedirs(folder, exist_ok=True)
         choice = int(input(
             Font.Color.BLUE + "\n[?]" + Font.Color.WHITE + Language.Translation.Translate_Language(filename, "Default", "choice", "None") + Font.Color.GREEN + "[#MOUGATHER#]" + Font.Color.WHITE + "-->"))
         if choice == 1:
@@ -140,6 +140,7 @@ class info:
                   Language.Translation.Translate_Language(filename, "Default", "Delete", "None").format(username))
         folder = "People"
         Logs.Log.Checker(username, folder)
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write(Language.Translation.Translate_Language(
             filename, "Report", "Default", "Date").format(Date) + "\r\n")
@@ -157,6 +158,7 @@ class info:
             n = 0
             print(Font.Color.GREEN +
                   "\n[+]" + Font.Color.WHITE + "GETTING LATEST POST GEOLOCATION:")
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write("\nGETTING LATEST POST GEOLOCATION:\n")
             for Locations in PostGpsCoordinates:
@@ -167,6 +169,7 @@ class info:
             
             print(Font.Color.GREEN +
                   "\n[+]" + Font.Color.WHITE + "GETTING LATEST PLACE VISITED:")
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write("\nGETTING LATEST PLACE VISITED:\n")
             for Locations in PostLocations:

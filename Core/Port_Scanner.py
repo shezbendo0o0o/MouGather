@@ -41,11 +41,13 @@ class Ports:
             print(Font.Color.BLUE + "[I]" + Font.Color.WHITE +
                   Language.Translation.Translate_Language(filename, "Default", "Delete", "None").format(username))
             os.remove(report)
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write("SCANNING EXECUTED ON:\n" + Date + "\r\n")
         f.write("OPEN PORTS:\r\n")
         f.close()
         Scanner.Port.Scan(username, report)
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write(Language.Translation.Translate_Language(
             filename, "Report", "Default", "By"))
