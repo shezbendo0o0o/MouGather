@@ -23,6 +23,7 @@ from Core.Support import DateFormat
 from Core.Support import Notification
 from Core.Support import Encoding
 from time import sleep
+from Core.Support.Phone import ExtendedSites
 
 filename = Language.Translation.Get_Language()
 filename
@@ -260,6 +261,7 @@ class Phone_search:
         code = 1
         international = Numbers.Phony.Number(num, report, code, Mode, Type, username)
         Phone_search.lookup(username, report, international)
+        ExtendedSites.add(username, report)
         print(Font.Color.WHITE + Language.Translation.Translate_Language(filename, "Default", "Report", "None") +
          report)
         f = open(report, "a")

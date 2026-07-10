@@ -25,9 +25,11 @@ class Log:
             file_Log = "Logs/{}/Session_{}.log".format(folder, username)
             try:
                 if (os.name != "nt"):
+                    os.makedirs(os.path.dirname(file_Log), exist_ok=True)
                     logging.basicConfig(filename=file_Log, filemode="w",
                                         format="%(asctime)s %(message)s", force=True)
                 else:
+                    os.makedirs(os.path.dirname(file_Log), exist_ok=True)
                     logging.basicConfig(filename=file_Log, filemode="w",
                                         format="%(asctime)s %(message)s")
                 Logger = logging.getLogger()

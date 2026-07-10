@@ -6,6 +6,7 @@
 from Core.Support import Font
 from Core.Support import Language
 from time import sleep
+import os
 
 filename = Language.Translation.Get_Language()
 filename
@@ -19,6 +20,7 @@ class Search:
               Language.Translation.Translate_Language(filename, "Dorks", "Generation", "None").format(Type))
         sleep(2)
         username = username.replace(" ","+")
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write(Type + "-DORKS:\n\n")
         f.close()
@@ -28,6 +30,7 @@ class Search:
             site = sites.rstrip("\n")
             site = site.replace("{}", username)
             print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + site)
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write(site + "\n")
         f.close()
@@ -53,6 +56,7 @@ class Search:
                 pass
             data = data.replace("/","")
         phrase = phrase.replace(" ","+")
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write("\n" + Type + "-DORKS:\n\n")
         f.close()
@@ -65,6 +69,7 @@ class Search:
             else:
                 site = site.replace("{}", phrase).replace(")","){}".format(data) + "".join(exclusion))
             print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + site)
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write(site + "\n")
         f.close()

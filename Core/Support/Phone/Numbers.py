@@ -14,6 +14,7 @@ from Core.Support import Font
 from Core.Support import Language
 from Core.Support import Map
 from time import sleep
+import os
 
 filename = Language.Translation.Get_Language()
 filename
@@ -28,7 +29,11 @@ class Phony:
         print(Font.Color.GREEN + "\n[+]" + Font.Color.WHITE +
               Language.Translation.Translate_Language(filename, "Phone", "Geo", "None").format(num))
         sleep(2)
-        url = urllib.request.urlopen(req)
+        try:
+            url = urllib.request.urlopen(req, timeout=15)
+        except Exception as e:
+            print("[!] GEOLOCATION REQUEST FAILED: {}".format(e))
+            return None
         try:
             Reader = url.read()
             parser = json.loads(Reader)
@@ -175,6 +180,7 @@ class Phony:
             if code == 0:
                 pass
             elif code == 1:
+                os.makedirs("Temp/Phone", exist_ok=True)
                 f = open("Temp/Phone/Code.txt", "w")
                 f.write(numberNation)
                 f.close()

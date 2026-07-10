@@ -49,6 +49,7 @@ class Transfer:
                         filename, "Transfer", "Generation", "None"))
                 sleep(3)       
                 url = pyqrcode.create(link,version=4)
+                os.makedirs("QRCodes", exist_ok=True)
                 url.eps('QRCodes/QR.png', scale=8)
                 print(Font.Color.BLUE + "\n[I]" + Font.Color.WHITE + Language.Translation.Translate_Language(
                         filename, "Transfer", "Location", "None"))
