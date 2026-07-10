@@ -599,6 +599,7 @@ class Web:
                     sleep(2)
                     print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE +
                           "LONGITUDE:" + Font.Color.GREEN + " {}".format(Lon))
+                    os.makedirs(os.path.dirname(report_Coordinates), exist_ok=True)
                     with open(report_Coordinates, "w", encoding="utf-8") as output:
                         json.dump(data, output, ensure_ascii=False, indent=4)
                     Map.Creation.mapWeb(report_Coordinates, Lat, Lon, username)
@@ -823,6 +824,7 @@ class Web:
                 }
             }
 
+            os.makedirs(os.path.dirname(report_Ip), exist_ok=True)
             with open(report_Ip, "w", encoding='utf-8') as outupt:
                 json.dump(data, outupt, ensure_ascii=False, indent=4)
             Map.Creation.mapWeb(report_Ip, lat2, lon2, username)
