@@ -132,6 +132,7 @@ class Web:
 
     @staticmethod
     def Ports(username, report):
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write(Language.Translation.Translate_Language(
             filename, "Report", "Website", "Ports"))
@@ -152,6 +153,7 @@ class Web:
     def Reputation(username, report):
         subject = "DOMAIN/WEBSITE/IP"
         data = "Site_lists/Websites/Lookup.json"
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write(Language.Translation.Translate_Language(
             filename, "Report", "Website", "Malicious"))
@@ -225,6 +227,7 @@ class Web:
             else:
                 print(Font.Color.YELLOW + "\n[v]" + Font.Color.WHITE +
                       Language.Translation.Translate_Language(filename, "Website", "Default", "Secure").format(username))
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write(Language.Translation.Translate_Language(
                     filename, "Report", "Website", "Safe"))
@@ -238,6 +241,7 @@ class Web:
                 for data1 in sites:
                     site1 = sites[data1]["url"].replace("{}", username)
                     print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + site1)
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write(Language.Translation.Translate_Language(
                 filename, "Report", "Website", "Info"))
@@ -351,6 +355,7 @@ class Web:
         proces = os.popen(command)
         results = str(proces.read())
         print(results)
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write("\n\nTRACEROUTE SEQUENCE:" + "\r\n")
         f.write(results)
@@ -370,6 +375,7 @@ class Web:
         Dorks.Search.dork(username, report, nomefile, Type)
         Web.yandex_dork(username, report)
         if number == True:
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write("\nGENERATING LINK FOR {} PHONE NUMBER {}...\n".format(
                 username, num))
@@ -382,12 +388,14 @@ class Web:
                 site = sites.rstrip("\n")
                 site = site.replace("{}", num)
                 print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + site)
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write(site + "\n")
                 f.close()
                 sleep(2)
             f.close()
         if email == True:
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write("\nGENERATING LINK FOR {} EMAIL {}...\n".format(
                 username, email2))
@@ -399,6 +407,7 @@ class Web:
                 site = sites.rstrip("\n")
                 site = site.replace("{}", email2)
                 print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + site)
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write(site + "\n")
                 f.close()
@@ -454,6 +463,7 @@ class Web:
                 results = str(proces.read())
                 final = results + command
                 print(Font.Color.WHITE + results)
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write("\nWEBSITE DATA:" + "\r\n")
                 f.write(results)
@@ -548,6 +558,7 @@ class Web:
                 print(Font.Color.GREEN +
                       "\n[+]" + Font.Color.WHITE + Language.Translation.Translate_Language(filename, "Website", "Default", "Maps"))
                 print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + link)
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write("\nWEBSITE DATA:" + "\r\n")
                 f.write(created + "\r\n")
@@ -605,7 +616,7 @@ class Web:
                             username, num)
                         if os.path.exists(folder):
                             shutil.rmtree(folder)
-                        os.mkdir(folder)
+                        os.makedirs(folder, exist_ok=True)
                         report2 = folder + "/{}.txt".format(num)
                         f = open(report2, "w")
                         f.write("\nPHONE NUMBER DATA:\n")
@@ -629,7 +640,7 @@ class Web:
                     if sc == 1:
                         folder = folder = "GUI/Reports/Websites/{}/{}".format(
                                 username, email2)
-                        os.mkdir(folder)
+                        os.makedirs(folder, exist_ok=True)
                         report2 = folder + "/{}.txt".format(email2)
                         try:
                             Mail.Mail_search.Lookup(email2,report2)
@@ -654,6 +665,7 @@ class Web:
                 results = str(proces.read())
                 final = results + command
                 print(Font.Color.WHITE + results)
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write("\nWEBSITE DATA:" + "\r\n")
                 f.write(results)
@@ -670,6 +682,7 @@ class Web:
                 tests = final["testResults"]
                 print(Font.Color.YELLOW +
                       "[v]" + Font.Color.WHITE + "REPUTATION RATING: {}".format(repu))
+                os.makedirs(os.path.dirname(report), exist_ok=True)
                 f = open(report, "a")
                 f.write("\n\nREPUTATION RATING: {}\r\n".format(repu))
                 for test1 in tests:
@@ -736,7 +749,7 @@ class Web:
             shutil.rmtree(folder)
             print(Font.Color.BLUE + "\n[I]" + Font.Color.WHITE +
                   Language.Translation.Translate_Language(filename, "Default", "Delete", "None").format(username))
-        os.mkdir(folder)
+        os.makedirs(folder, exist_ok=True)
         report = "GUI/Reports/Websites/{}/{}.txt".format(username, username)
         report_Ip = "GUI/Reports/Websites/Coordinates/Ip_Geolocation/" + username + ".json"
         now = datetime.now()
@@ -785,6 +798,7 @@ class Web:
                   "\n[+]" + Font.Color.WHITE + Language.Translation.Translate_Language(filename, "Website", "Default", "Maps"))
             sleep(2)
             print(Font.Color.YELLOW + "[v]" + Font.Color.WHITE + link)
+            os.makedirs(os.path.dirname(report), exist_ok=True)
             f = open(report, "a")
             f.write(Language.Translation.Translate_Language(
                 filename, "Report", "Default", "Date").format(Date) + "\r\n")
@@ -854,6 +868,7 @@ class Web:
                                 if choice == 1:
                                     Web.trace(username, report)
 
+        os.makedirs(os.path.dirname(report), exist_ok=True)
         f = open(report, "a")
         f.write(Language.Translation.Translate_Language(
             filename, "Report", "Default", "By"))
